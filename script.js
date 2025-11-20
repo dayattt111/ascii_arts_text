@@ -1,18 +1,14 @@
-async function generate() {
-    const text = document.getElementById('input').value;
+async function generateASCII() {
+    const text = document.getElementById("inputText").value;
 
-    const res = await fetch('api/generate.py', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text })
-    });
-
+    const res = await fetch("/api/generate?text=" + encodeURIComponent(text));
     const data = await res.json();
-    document.getElementById('output').textContent = data.ascii;
+
+    document.getElementById("output").innerText = data.ascii;
 }
 
-function copyText() {
-    const ascii = document.getElementById('output').textContent;
-    navigator.clipboard.writeText(ascii);
-    alert("Berhasil disalin!");
+function copyASCII() {
+    const text = document.getElementById("output").innerText;
+    navigator.clipboard.writeText(text);
+    alert("ASCII berhasil disalin!");
 }
