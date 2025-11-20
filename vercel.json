@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "api/generate.py",
-      "use": "vercel-python@0.5.2"
+      "use": "@vercel/python"
     },
     {
       "src": "index.html",
@@ -11,13 +11,7 @@
     }
   ],
   "routes": [
-    {
-      "src": "/api/generate",
-      "dest": "/api/generate.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    { "src": "/api/generate", "dest": "/api/generate.py" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
