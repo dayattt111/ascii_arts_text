@@ -1,7 +1,7 @@
 async function generate() {
     const text = document.getElementById('input').value;
 
-    const res = await fetch('/api/generate.py', {
+    const res = await fetch('api/generate.py', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text })
